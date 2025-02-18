@@ -1,5 +1,4 @@
 package com.kevin.zee.x_api.controller;
-
 import com.kevin.zee.x_api.dto.ApiResponse;
 import com.kevin.zee.x_api.model.User;
 import com.kevin.zee.x_api.repository.UserRepository;
@@ -63,4 +62,6 @@ public class AuthController {
                     .body(new ApiResponse<>(401, "Invalid username or password", null));
         }
     }
+
+
 }
