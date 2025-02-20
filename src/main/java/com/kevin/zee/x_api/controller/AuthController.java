@@ -1,6 +1,6 @@
 package com.kevin.zee.x_api.controller;
 import com.kevin.zee.x_api.dto.ApiResponse;
-import com.kevin.zee.x_api.model.User;
+import com.kevin.zee.x_api.model.user.User;
 import com.kevin.zee.x_api.repository.UserRepository;
 import com.kevin.zee.x_api.util.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;

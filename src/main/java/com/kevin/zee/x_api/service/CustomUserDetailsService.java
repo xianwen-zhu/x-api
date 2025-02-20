@@ -1,7 +1,7 @@
 package com.kevin.zee.x_api.service;
 
 import com.kevin.zee.x_api.config.SecurityUser;
-import com.kevin.zee.x_api.model.User;
+import com.kevin.zee.x_api.model.user.User;
 import com.kevin.zee.x_api.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

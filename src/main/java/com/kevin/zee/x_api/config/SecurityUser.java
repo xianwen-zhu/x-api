@@ -2,7 +2,7 @@
 // 适配 Spring Security 的用户接口
 
 package com.kevin.zee.x_api.config;
-import com.kevin.zee.x_api.model.User;
+import com.kevin.zee.x_api.model.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
