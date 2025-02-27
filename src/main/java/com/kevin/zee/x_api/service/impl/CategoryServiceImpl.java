@@ -55,6 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
         SubCategoryResponse response = new SubCategoryResponse();
         response.setId(category.getId());
         response.setName(category.getName());
+        response.setMainCategoryId(category.getMainCategory().getId());
         response.setDescription(category.getDescription());
         return response;
     }
@@ -64,6 +65,8 @@ public class CategoryServiceImpl implements CategoryService {
         response.setId(category.getId());
         response.setName(category.getName());
         response.setDescription(category.getDescription());
+        response.setMainCategoryId(category.getSubCategory().getMainCategory().getId());  // 设置大类ID
+        response.setSubCategoryId(category.getSubCategory().getId());  // 设置父级分类ID
         return response;
     }
 }

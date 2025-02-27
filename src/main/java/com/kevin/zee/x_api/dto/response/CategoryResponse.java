@@ -19,6 +19,7 @@ public class CategoryResponse {
     public static class SubCategoryResponse {
         private Long id;
         private String name;
+        private Long mainCategoryId;  // 添加父级分类ID
         private String description;
         private List<MiniCategoryResponse> miniCategories;
     }
@@ -29,5 +30,7 @@ public class CategoryResponse {
         private Long id;
         private String name;
         private String description;
+        private Long mainCategoryId;  // 添加大类ID
+        private Long subCategoryId;   // 添加父级分类ID
     }
 }

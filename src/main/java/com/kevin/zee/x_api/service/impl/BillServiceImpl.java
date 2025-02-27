@@ -162,6 +162,12 @@ public class BillServiceImpl implements BillService {
     private BillResponse convertToResponse(Bill bill) {
         BillResponse response = new BillResponse();
         response.setId(bill.getId());
+
+        // 设置分类 ID
+        response.setMainCategoryId(bill.getMainCategory().getId());
+        response.setSubCategoryId(bill.getSubCategory().getId());
+        response.setMiniCategoryId(bill.getMiniCategory().getId());
+
         response.setBillNumber(bill.getBillNumber());
         response.setMainCategoryName(bill.getMainCategory().getName());
         response.setSubCategoryName(bill.getSubCategory().getName());
