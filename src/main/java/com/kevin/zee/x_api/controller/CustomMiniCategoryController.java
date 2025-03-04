@@ -20,6 +20,7 @@ import java.util.List;
 public class CustomMiniCategoryController {
     private final CustomMiniCategoryService customCategoryService;
 
+    /// 创建自定义分类
     @PostMapping
     public ResponseEntity<ApiResponse<CustomMiniCategoryResponse>> createCustomCategory(
             @CurrentUser User user,
@@ -27,7 +28,7 @@ public class CustomMiniCategoryController {
         CustomMiniCategoryResponse response = customCategoryService.createCustomCategory(user.getId(), request);
         return ResponseEntity.ok(new ApiResponse<>(200, "Custom category created successfully", response));
     }
-
+    /// 更新自定义分类
     @PutMapping("/{categoryId}")
     public ResponseEntity<ApiResponse<CustomMiniCategoryResponse>> updateCustomCategory(
             @CurrentUser User user,
@@ -37,7 +38,7 @@ public class CustomMiniCategoryController {
                 user.getId(), categoryId, request);
         return ResponseEntity.ok(new ApiResponse<>(200, "Custom category updated successfully", response));
     }
-
+    /// 删除自定义分类
     @DeleteMapping("/{categoryId}")
     public ResponseEntity<ApiResponse<Void>> deleteCustomCategory(
             @CurrentUser User user,
@@ -45,14 +46,14 @@ public class CustomMiniCategoryController {
         customCategoryService.deleteCustomCategory(user.getId(), categoryId);
         return ResponseEntity.ok(new ApiResponse<>(200, "Custom category deleted successfully", null));
     }
-
+    /// 获取自定义分类列表
     @GetMapping
     public ResponseEntity<ApiResponse<List<CustomMiniCategoryResponse>>> getUserCustomCategories(
             @CurrentUser User user) {
         List<CustomMiniCategoryResponse> categories = customCategoryService.getUserCustomCategories(user.getId());
         return ResponseEntity.ok(new ApiResponse<>(200, "Custom categories retrieved successfully", categories));
     }
-
+    /// 获取自定义分类列表
     @GetMapping("/parent/{parentCategoryId}")
     public ResponseEntity<ApiResponse<List<CustomMiniCategoryResponse>>> getUserCustomCategoriesByParent(
             @CurrentUser User user,

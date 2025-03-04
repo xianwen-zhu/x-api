@@ -3,11 +3,14 @@ package com.kevin.zee.x_api.model.bill;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+
 import java.util.List;
 
 @Entity
 @Table(name = "sub_categories")
 @Data
+@ToString(exclude = {"mainCategory", "miniCategories"})
 public class SubCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

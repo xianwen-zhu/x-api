@@ -7,7 +7,7 @@ import com.kevin.zee.x_api.dto.response.CategoryResponse.MiniCategoryResponse;
 import java.util.List;
 
 public interface CategoryService {
-    List<MainCategoryResponse> getAllMainCategories();
-    List<SubCategoryResponse> getSubCategories(Long mainCategoryId);
-    List<MiniCategoryResponse> getMiniCategories(Long subCategoryId);
+    List<MainCategoryResponse> getAllMainCategories(Long userId);
+    List<SubCategoryResponse> getSubCategories(Long userId,Long mainCategoryId);
+    List<MiniCategoryResponse> getMiniCategories(Long userId,Long subCategoryId);
 }

@@ -32,5 +32,7 @@ public class CategoryResponse {
         private String description;
         private Long mainCategoryId;  // 添加大类ID
         private Long subCategoryId;   // 添加父级分类ID
+        private Boolean isCustom = false;
+
     }
 }
