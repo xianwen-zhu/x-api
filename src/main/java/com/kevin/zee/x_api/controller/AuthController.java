@@ -1,5 +1,7 @@
 package com.kevin.zee.x_api.controller;
+import com.kevin.zee.x_api.config.resolver.CurrentUser;
 import com.kevin.zee.x_api.dto.ApiResponse;
+import com.kevin.zee.x_api.dto.response.UserInfoResponse;
 import com.kevin.zee.x_api.model.user.User;
 import com.kevin.zee.x_api.repository.UserRepository;
 import com.kevin.zee.x_api.util.JwtUtils;
@@ -60,6 +62,27 @@ public class AuthController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(new ApiResponse<>(401, "Invalid username or password", null));
+        }
+    }
+
+    // 获取用户信息
+    @PostMapping("/userinfo")
+    public ResponseEntity<ApiResponse<UserInfoResponse>> getUserInfo(@CurrentUser User user) {
+        try {
+            // 直接使用@CurrentUser注解获取的已认证用户
+            // 创建UserInfoResponse DTO
+            UserInfoResponse userInfo = new UserInfoResponse(
+                    user.getId(),
+                    user.getUsername(),
+                    user.getEmail(),
+                    user.getPhone(),
+                    user.getCreatedAt()
+            );
+
+            return ResponseEntity.ok(new ApiResponse<>(200, "User info retrieved successfully", userInfo));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ApiResponse<>(500, "Error retrieving user info: " + e.getMessage(), null));
         }
     }
 
